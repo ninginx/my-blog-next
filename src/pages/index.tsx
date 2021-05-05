@@ -21,7 +21,7 @@ const Index: VFC<Props> = ({ allPosts }: Props) => {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>喜怒哀楽</title>
         </Head>
         <Container>
           <Intro />
