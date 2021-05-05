@@ -4,11 +4,10 @@ import Footer from "./footer";
 import Meta from "./meta";
 
 type Props = {
-  preview?: boolean;
   children: React.ReactNode;
 };
 
-const Layout: VFC<Props> = ({ preview, children }: Props) => (
+const Layout: VFC<Props> = ({ children }: Props) => (
   <>
     <Meta />
     <div className="min-h-screen">
@@ -18,9 +17,5 @@ const Layout: VFC<Props> = ({ preview, children }: Props) => (
     <Footer />
   </>
 );
-
-Layout.defaultProps = {
-  preview: undefined,
-};
 
 export default Layout;

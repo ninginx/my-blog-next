@@ -5,10 +5,16 @@ type Props = {
   content: string;
 };
 
+type markdownStyles = {
+  markdown: string;
+};
+
 const PostBody: VFC<Props> = ({ content }: Props) => (
   <div className="max-w-2xl mx-auto">
     <div
-      className={markdownStyles.markdown}
+      className={(markdownStyles as markdownStyles).markdown}
+      // packageで提供されてるので多分安全w
+      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: content }}
     />
   </div>

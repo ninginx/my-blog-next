@@ -10,7 +10,6 @@ import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post-title";
 
-import { CMS_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import PostType from "../../types/post";
 
@@ -19,17 +18,16 @@ type Props = {
   // TODO: どこかでいつか使うと思うので
   // eslint-disable-next-line react/no-unused-prop-types
   morePosts: PostType[];
-  preview?: boolean;
 };
 
-const Post: VFC<Props> = ({ post, preview }: Props) => {
+const Post: VFC<Props> = ({ post }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -54,10 +52,6 @@ const Post: VFC<Props> = ({ post, preview }: Props) => {
       </Container>
     </Layout>
   );
-};
-
-Post.defaultProps = {
-  preview: undefined,
 };
 
 export default Post;
