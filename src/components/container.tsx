@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Container: VFC<Props> = ({ children }: Props) => (
-  <div className="container mx-auto px-5">{children}</div>
+  <div className="container mx-auto md:w-1/2 px-10">{children}</div>
 );
 
 Container.defaultProps = {

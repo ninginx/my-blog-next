@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { VFC } from "react";
+import Avatar from "components/avatar";
 import Container from "../components/container";
 import MoreStories from "../components/more-stories";
 import Intro from "../components/intro";
@@ -22,6 +23,7 @@ const Index: VFC<Props> = ({ allPosts }: Props) => {
         </Head>
         <Container>
           <Intro />
+          <Avatar picture="/assets/blog/authors/ninginx.jpg" name="t4r0" />
           {posts.length > 0 && <MoreStories posts={posts} />}
         </Container>
       </Layout>
