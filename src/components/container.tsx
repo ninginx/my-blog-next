@@ -1,11 +1,15 @@
-import { ReactNode, FunctionComponent } from 'react'
+import { ReactNode, VFC } from "react";
 
 type Props = {
-  children?: ReactNode
-}
+  children?: ReactNode;
+};
 
-const Container: FunctionComponent = ({ children }: Props) => {
-  return <div className="container mx-auto px-5">{children}</div>
-}
+const Container: VFC<Props> = ({ children }: Props) => (
+  <div className="container mx-auto px-5">{children}</div>
+);
 
-export default Container
+Container.defaultProps = {
+  children: null,
+};
+
+export default Container;

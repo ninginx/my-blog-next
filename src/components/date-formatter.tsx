@@ -1,12 +1,14 @@
-import { parseISO, format } from 'date-fns'
+import { parseISO, format } from "date-fns";
+import { VFC } from "react";
 
 type Props = {
-  dateString: string
-}
+  dateString: string;
+};
 
-const DateFormatter = ({ dateString }: Props) => {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
-}
+const DateFormatter: VFC<Props> = ({ dateString }: Props) => {
+  const date = parseISO(dateString);
 
-export default DateFormatter
+  return <time dateTime={dateString}>{format(date, "LLLL	d, yyyy")}</time>;
+};
+
+export default DateFormatter;

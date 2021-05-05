@@ -1,13 +1,13 @@
+import Head from "next/head";
+import { VFC } from "react";
 import Container from "../components/container";
 import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
-import Head from "next/head";
+import { getAllPosts, Items } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../types/post";
-import { VFC } from "react";
 
 type Props = {
   allPosts: Post[];
@@ -16,6 +16,7 @@ type Props = {
 const Index: VFC<Props> = ({ allPosts }: Props) => {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+
   return (
     <>
       <Layout>
@@ -43,7 +44,13 @@ const Index: VFC<Props> = ({ allPosts }: Props) => {
 
 export default Index;
 
-export const getStaticProps = async () => {
+type StaticProps = {
+  props: {
+    allPosts: Items[];
+  };
+};
+
+export const getStaticProps = (): StaticProps => {
   const allPosts = getAllPosts([
     "title",
     "date",

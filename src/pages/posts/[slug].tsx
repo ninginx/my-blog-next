@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
+import { VFC } from "react";
 import Container from "../../components/container";
 import PostBody from "../../components/post-body";
 import Header from "../../components/header";
@@ -15,15 +16,18 @@ import PostType from "../../types/post";
 
 type Props = {
   post: PostType;
+  // TODO: どこかでいつか使うと思うので
+  // eslint-disable-next-line react/no-unused-prop-types
   morePosts: PostType[];
   preview?: boolean;
 };
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post: VFC<Props> = ({ post, preview }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -66,7 +70,17 @@ type Params = {
   };
 };
 
-export async function getStaticProps({ params }: Params) {
+type StaticProps = {
+  props: {
+    post: {
+      content: string;
+    };
+  };
+};
+
+export const getStaticProps = async ({
+  params,
+}: Params): Promise<StaticProps> => {
   const post = getPostBySlug(params.slug, [
     "title",
     "date",
@@ -86,19 +100,26 @@ export async function getStaticProps({ params }: Params) {
       },
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+type StaticPaths = {
+  paths: {
+    params: {
+      slug: string;
+    };
+  }[];
+  fallback: boolean;
+};
+
+export const getStaticPaths = (): StaticPaths => {
   const posts = getAllPosts(["slug"]);
 
   return {
-    paths: posts.map((posts) => {
-      return {
-        params: {
-          slug: posts.slug,
-        },
-      };
-    }),
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
     fallback: false,
   };
-}
+};
