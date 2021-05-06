@@ -24,13 +24,23 @@ const Avatar: VFC<Props> = ({ name, picture }: Props) => (
           />
         </a>
         <a
-          className="underline text-blue-600"
+          className="underline text-blue-600 mr-4"
           href="https://github.com/ninginx"
         >
           <img
             src="/assets/blog/logo/github-logo.png"
             className="h-10"
             alt="github-link"
+          />
+        </a>
+        <a
+          className="underline text-blue-600 mr-4"
+          href="https://scrapbox.io/t4r0kov-scrap-scrap/"
+        >
+          <img
+            src="/assets/blog/logo/scrapbox-logo.svg"
+            className="h-10"
+            alt="scrap-link"
           />
         </a>
       </div>
