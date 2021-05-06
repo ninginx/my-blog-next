@@ -10,7 +10,7 @@ const Avatar: VFC<Props> = ({ name, picture }: Props) => (
     <img src={picture} className="w-24 h-24 rounded-full mr-4" alt={name} />
     <div className="flex flex-col">
       <div className="text-xl mb-4">
-        {name} : メーカー勤務のWebエンジニア。人生がエモい。
+        {name} : メーカー勤務のWebエンジニア。動き出しが遅い。
       </div>
       <div className="text-xl flex">
         <a
