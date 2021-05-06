@@ -19,7 +19,7 @@ const Avatar: VFC<Props> = ({ name, picture }: Props) => (
         >
           <img
             src="/assets/blog/logo/twitter-logo.png"
-            className="w-10 "
+            className="h-10"
             alt="twitter-link"
           />
         </a>
@@ -29,8 +29,8 @@ const Avatar: VFC<Props> = ({ name, picture }: Props) => (
         >
           <img
             src="/assets/blog/logo/github-logo.png"
-            className="w-10 "
-            alt="twitter-link"
+            className="h-10"
+            alt="github-link"
           />
         </a>
       </div>
