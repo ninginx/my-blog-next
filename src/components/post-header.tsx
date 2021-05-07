@@ -9,7 +9,7 @@ type Props = {
 
 const PostHeader: VFC<Props> = ({ title, date }: Props) => (
   <>
-    <PostTitle>タイトル：{title}</PostTitle>
+    <PostTitle>{title}</PostTitle>
     <div className="max-w-2xl mx-auto">
       <div className="mb-6 text-lg">
         投稿日：
