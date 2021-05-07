@@ -1,6 +1,6 @@
 ---
 title: '2020年の振り返り'
-excerpt: 'Looking-Back 2020'
+excerpt: '年末なので、1年を振り返るよ！'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: "2020-12-29"
 author:
